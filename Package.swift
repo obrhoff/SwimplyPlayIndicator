@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "PlayIndicator",
     platforms: [
-        .iOS(.v13), .watchOS(.v6), macOS(.v10.15)
+        .iOS(.v13), .watchOS(.v6), .macOS(.v10_15)
     ],
     products: [
         .library(
