@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E18D8A5B23F42F6D001CEAB1"
-               BuildableName = "PlayIndicator-tvOS.framework"
+               BuildableName = "PlayIndicator.framework"
                BlueprintName = "PlayIndicator-tvOS"
                ReferencedContainer = "container:PlayIndicator.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E18D8A5B23F42F6D001CEAB1"
-            BuildableName = "PlayIndicator-tvOS.framework"
+            BuildableName = "PlayIndicator.framework"
             BlueprintName = "PlayIndicator-tvOS"
             ReferencedContainer = "container:PlayIndicator.xcodeproj">
          </BuildableReference>

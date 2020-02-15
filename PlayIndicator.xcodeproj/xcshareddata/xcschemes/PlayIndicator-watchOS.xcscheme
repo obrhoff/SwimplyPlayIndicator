@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E18D8A6623F42F70001CEAB1"
-               BuildableName = "PlayIndicator-watchOS.framework"
+               BuildableName = "PlayIndicator.framework"
                BlueprintName = "PlayIndicator-watchOS"
                ReferencedContainer = "container:PlayIndicator.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E18D8A6623F42F70001CEAB1"
-            BuildableName = "PlayIndicator-watchOS.framework"
+            BuildableName = "PlayIndicator.framework"
             BlueprintName = "PlayIndicator-watchOS"
             ReferencedContainer = "container:PlayIndicator.xcodeproj">
          </BuildableReference>

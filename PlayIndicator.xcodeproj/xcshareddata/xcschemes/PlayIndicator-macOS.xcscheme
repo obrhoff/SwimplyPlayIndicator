@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E18D8A5023F42F65001CEAB1"
-               BuildableName = "PlayIndicator-macOS.framework"
+               BuildableName = "PlayIndicator.framework"
                BlueprintName = "PlayIndicator-macOS"
                ReferencedContainer = "container:PlayIndicator.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E18D8A5023F42F65001CEAB1"
-            BuildableName = "PlayIndicator-macOS.framework"
+            BuildableName = "PlayIndicator.framework"
             BlueprintName = "PlayIndicator-macOS"
             ReferencedContainer = "container:PlayIndicator.xcodeproj">
          </BuildableReference>
