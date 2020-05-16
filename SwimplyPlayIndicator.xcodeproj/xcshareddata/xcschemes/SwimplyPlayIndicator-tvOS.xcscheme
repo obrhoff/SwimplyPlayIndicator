@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E18D8A5B23F42F6D001CEAB1"
-               BuildableName = "PlayIndicator.framework"
+               BuildableName = "SwimplyPlayIndicator.framework"
                BlueprintName = "PlayIndicator-tvOS"
-               ReferencedContainer = "container:PlayIndicator.xcodeproj">
+               ReferencedContainer = "container:SwimplyPlayIndicator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E18D8A5B23F42F6D001CEAB1"
-            BuildableName = "PlayIndicator.framework"
+            BuildableName = "SwimplyPlayIndicator.framework"
             BlueprintName = "PlayIndicator-tvOS"
-            ReferencedContainer = "container:PlayIndicator.xcodeproj">
+            ReferencedContainer = "container:SwimplyPlayIndicator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
