@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
-  s.name = "PlayIndicator"
-  s.version = "1.0.2"
+  s.name = "SwimplyPlayIndicator"
+  s.version = "1.0.3"
   s.summary = "Animated PlayIndicator written in SwiftUI. Inspired by Apple's Music Player."
-  s.homepage = "https://github.com/docterd/PlayIndicator"
+  s.homepage = "https://github.com/docterd/SwimplyPlayIndicator"
   s.license = { :type => "MIT" }
   s.author = { "Dennis Oberhoff" => "dennis@obrhoff.de" }
-  s.source = { :git => "https://github.com/docterd/playindicator.git", :tag => "1.0.2"}
-  s.source_files = "Sources/PlayIndicator/PlayIndicator.swift"
+  s.source = { :git => "https://github.com/docterd/SwimplyPlayIndicator.git", :tag => "1.0.3"}
+  s.source_files = "Sources/SwimplyPlayIndicator/SwimplyPlayIndicator.swift"
   s.osx.deployment_target  = '10.15'
   s.osx.framework  = 'SwiftUI'
   s.ios.deployment_target = "13.0"

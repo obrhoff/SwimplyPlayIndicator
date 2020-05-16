@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct PlayIndicator: View {
+public struct SwimplyPlayIndicator: View {
     struct AnimationValue: Identifiable {
         let id: Int
         let maxValue: CGFloat
@@ -66,7 +66,7 @@ public struct PlayIndicator: View {
     }
 }
 
-private extension PlayIndicator {
+private extension SwimplyPlayIndicator {
     struct LineView: Shape {
         var maxValue: CGFloat
 

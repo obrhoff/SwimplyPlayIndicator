@@ -12,12 +12,12 @@
 		79029AD623F8091C009F2ACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79029AD523F8091C009F2ACA /* Assets.xcassets */; };
 		79029AD923F8091C009F2ACA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79029AD823F8091C009F2ACA /* Preview Assets.xcassets */; };
 		79029ADC23F8091C009F2ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79029ADA23F8091C009F2ACA /* Main.storyboard */; };
-		79029AE323F80929009F2ACA /* PlayIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D8A5923F42F65001CEAB1 /* PlayIndicator.framework */; };
-		79029AE423F80929009F2ACA /* PlayIndicator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E18D8A5923F42F65001CEAB1 /* PlayIndicator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E18D8A4F23F42EE9001CEAB1 /* PlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* PlayIndicator.swift */; };
-		E18D8A5323F42F65001CEAB1 /* PlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* PlayIndicator.swift */; };
-		E18D8A5E23F42F6D001CEAB1 /* PlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* PlayIndicator.swift */; };
-		E18D8A6923F42F70001CEAB1 /* PlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* PlayIndicator.swift */; };
+		79029AE323F80929009F2ACA /* SwimplyPlayIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18D8A5923F42F65001CEAB1 /* SwimplyPlayIndicator.framework */; };
+		79029AE423F80929009F2ACA /* SwimplyPlayIndicator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E18D8A5923F42F65001CEAB1 /* SwimplyPlayIndicator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E18D8A4F23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift */; };
+		E18D8A5323F42F65001CEAB1 /* SwimplyPlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift */; };
+		E18D8A5E23F42F6D001CEAB1 /* SwimplyPlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift */; };
+		E18D8A6923F42F70001CEAB1 /* SwimplyPlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D8A4E23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				79029AE423F80929009F2ACA /* PlayIndicator.framework in Embed Frameworks */,
+				79029AE423F80929009F2ACA /* SwimplyPlayIndicator.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,12 +53,12 @@
 		79029ADB23F8091C009F2ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79029ADD23F8091C009F2ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79029ADE23F8091C009F2ACA /* Entitlements.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.entitlements; sourceTree = "<group>"; };
-		E18D8A4323F42EB0001CEAB1 /* PlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E18D8A4723F42EB0001CEAB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E18D8A4E23F42EE9001CEAB1 /* PlayIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayIndicator.swift; path = Sources/PlayIndicator/PlayIndicator.swift; sourceTree = SOURCE_ROOT; };
-		E18D8A5923F42F65001CEAB1 /* PlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E18D8A6423F42F6D001CEAB1 /* PlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E18D8A6F23F42F70001CEAB1 /* PlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18D8A4323F42EB0001CEAB1 /* SwimplyPlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyPlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18D8A4E23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwimplyPlayIndicator.swift; path = Sources/SwimplyPlayIndicator/SwimplyPlayIndicator.swift; sourceTree = SOURCE_ROOT; };
+		E18D8A5923F42F65001CEAB1 /* SwimplyPlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyPlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18D8A6423F42F6D001CEAB1 /* SwimplyPlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyPlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18D8A6F23F42F70001CEAB1 /* SwimplyPlayIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyPlayIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1B3D98D246FC0890007401E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79029AE323F80929009F2ACA /* PlayIndicator.framework in Frameworks */,
+				79029AE323F80929009F2ACA /* SwimplyPlayIndicator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 		E18D8A3923F42EB0001CEAB1 = {
 			isa = PBXGroup;
 			children = (
-				E18D8A4523F42EB0001CEAB1 /* PlayIndicator */,
+				E18D8A4523F42EB0001CEAB1 /* SwimplyPlayIndicator */,
 				79029AD023F8091B009F2ACA /* Example-macOS */,
 				E18D8A4423F42EB0001CEAB1 /* Products */,
 				79029AE223F80929009F2ACA /* Frameworks */,
@@ -143,22 +143,23 @@
 		E18D8A4423F42EB0001CEAB1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E18D8A4323F42EB0001CEAB1 /* PlayIndicator.framework */,
-				E18D8A5923F42F65001CEAB1 /* PlayIndicator.framework */,
-				E18D8A6423F42F6D001CEAB1 /* PlayIndicator.framework */,
-				E18D8A6F23F42F70001CEAB1 /* PlayIndicator.framework */,
+				E18D8A4323F42EB0001CEAB1 /* SwimplyPlayIndicator.framework */,
+				E18D8A5923F42F65001CEAB1 /* SwimplyPlayIndicator.framework */,
+				E18D8A6423F42F6D001CEAB1 /* SwimplyPlayIndicator.framework */,
+				E18D8A6F23F42F70001CEAB1 /* SwimplyPlayIndicator.framework */,
 				79029ACF23F8091B009F2ACA /* Example-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E18D8A4523F42EB0001CEAB1 /* PlayIndicator */ = {
+		E18D8A4523F42EB0001CEAB1 /* SwimplyPlayIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				E18D8A4E23F42EE9001CEAB1 /* PlayIndicator.swift */,
-				E18D8A4723F42EB0001CEAB1 /* Info.plist */,
+				E18D8A4E23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift */,
+				E1B3D98D246FC0890007401E /* Info.plist */,
 			);
-			path = PlayIndicator;
+			name = SwimplyPlayIndicator;
+			path = Sources/SwimplyPlayIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +230,7 @@
 			);
 			name = "PlayIndicator-iOS";
 			productName = PlayIndicator;
-			productReference = E18D8A4323F42EB0001CEAB1 /* PlayIndicator.framework */;
+			productReference = E18D8A4323F42EB0001CEAB1 /* SwimplyPlayIndicator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E18D8A5023F42F65001CEAB1 /* PlayIndicator-macOS */ = {
@@ -247,7 +248,7 @@
 			);
 			name = "PlayIndicator-macOS";
 			productName = PlayIndicator;
-			productReference = E18D8A5923F42F65001CEAB1 /* PlayIndicator.framework */;
+			productReference = E18D8A5923F42F65001CEAB1 /* SwimplyPlayIndicator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E18D8A5B23F42F6D001CEAB1 /* PlayIndicator-tvOS */ = {
@@ -265,7 +266,7 @@
 			);
 			name = "PlayIndicator-tvOS";
 			productName = PlayIndicator;
-			productReference = E18D8A6423F42F6D001CEAB1 /* PlayIndicator.framework */;
+			productReference = E18D8A6423F42F6D001CEAB1 /* SwimplyPlayIndicator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E18D8A6623F42F70001CEAB1 /* PlayIndicator-watchOS */ = {
@@ -283,7 +284,7 @@
 			);
 			name = "PlayIndicator-watchOS";
 			productName = PlayIndicator;
-			productReference = E18D8A6F23F42F70001CEAB1 /* PlayIndicator.framework */;
+			productReference = E18D8A6F23F42F70001CEAB1 /* SwimplyPlayIndicator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -293,7 +294,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Dennis Oberhoff";
 				TargetAttributes = {
 					79029ACE23F8091B009F2ACA = {
@@ -305,7 +306,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E18D8A3D23F42EB0001CEAB1 /* Build configuration list for PBXProject "PlayIndicator" */;
+			buildConfigurationList = E18D8A3D23F42EB0001CEAB1 /* Build configuration list for PBXProject "SwimplyPlayIndicator" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -382,7 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18D8A4F23F42EE9001CEAB1 /* PlayIndicator.swift in Sources */,
+				E18D8A4F23F42EE9001CEAB1 /* SwimplyPlayIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18D8A5323F42F65001CEAB1 /* PlayIndicator.swift in Sources */,
+				E18D8A5323F42F65001CEAB1 /* SwimplyPlayIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18D8A5E23F42F6D001CEAB1 /* PlayIndicator.swift in Sources */,
+				E18D8A5E23F42F6D001CEAB1 /* SwimplyPlayIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18D8A6923F42F70001CEAB1 /* PlayIndicator.swift in Sources */,
+				E18D8A6923F42F70001CEAB1 /* SwimplyPlayIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +450,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -473,7 +474,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -618,8 +619,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -645,8 +646,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -672,8 +673,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -701,8 +702,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -728,8 +729,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -756,8 +757,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -783,8 +784,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -811,8 +812,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.playindicator;
-				PRODUCT_NAME = PlayIndicator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyPlayIndicator;
+				PRODUCT_NAME = SwimplyPlayIndicator;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -832,7 +833,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E18D8A3D23F42EB0001CEAB1 /* Build configuration list for PBXProject "PlayIndicator" */ = {
+		E18D8A3D23F42EB0001CEAB1 /* Build configuration list for PBXProject "SwimplyPlayIndicator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E18D8A4923F42EB0001CEAB1 /* Debug */,

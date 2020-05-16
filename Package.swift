@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "PlayIndicator",
+    name: "SwimplyPlayIndicator",
     platforms: [
         .iOS(.v13), .watchOS(.v6), .macOS(.v10_15)
     ],
     products: [
         .library(
-            name: "PlayIndicator",
-            targets: ["PlayIndicator"]),
+            name: "SwimplyPlayIndicator",
+            targets: ["SwimplyPlayIndicator"]),
     ],
     targets: [
         .target(
-            name: "PlayIndicator",
+            name: "SwimplyPlayIndicator",
             dependencies: []),
     ]
 )
