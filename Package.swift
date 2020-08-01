@@ -6,16 +6,18 @@ import PackageDescription
 let package = Package(
     name: "SwimplyPlayIndicator",
     platforms: [
-        .iOS(.v13), .watchOS(.v6), .macOS(.v10_15)
+        .iOS(.v13), .watchOS(.v6), .macOS(.v10_15),
     ],
     products: [
         .library(
             name: "SwimplyPlayIndicator",
-            targets: ["SwimplyPlayIndicator"]),
+            targets: ["SwimplyPlayIndicator"]
+        ),
     ],
     targets: [
         .target(
             name: "SwimplyPlayIndicator",
-            dependencies: []),
+            dependencies: []
+        ),
     ]
 )

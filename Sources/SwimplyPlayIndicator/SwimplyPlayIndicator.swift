@@ -13,22 +13,28 @@ public struct SwimplyPlayIndicator: View {
         case pause
     }
 
+    public enum Style {
+        case legacy
+        case modern
+    }
+
     @Binding private var state: AudioState
     @State private var animating: Bool = false
     private let minimalValue: CGFloat = 0.1
     public let lineColor: Color
     public let lineCount: Int
-
-    private var stopAnimation: Animation {
-        Animation.easeOut(duration: 0.2)
-    }
+    public let style: Style
 
     private var opacity: Double {
         state == .stop ? 0.0 : 1.0
     }
 
-    private var opacityAnimation: Animation? {
-        Animation.linear
+    private var stopAnimation: Animation {
+        .easeOut(duration: 0.2)
+    }
+
+    private var opacityAnimation: Animation {
+        .linear
     }
 
     private var animationValues: [AnimationValue] {
@@ -43,32 +49,33 @@ public struct SwimplyPlayIndicator: View {
         return values
     }
 
-    public init(state: Binding<AudioState>, lineCount: Int = 4, lineColor: Color = Color.black) {
-        self._state = state
+    public init(state: Binding<AudioState>, lineCount: Int = 4, lineColor: Color = Color.black, style: Style = .modern) {
+        _state = state
         self.lineCount = lineCount
         self.lineColor = lineColor
+        self.style = style
     }
 
     public var body: some View {
         GeometryReader { reader in
             HStack(alignment: .center, spacing: 1) {
                 ForEach(self.animationValues) { value in
-                    LineView(maxValue:
-                        self.state == .play ? value.maxValue : self.minimalValue)
-                        .stroke(self.lineColor, lineWidth: reader.size.width / 8)
-                        .animation(self.state == .play ? value.animation.repeatForever() : Animation.easeOut(duration: 0.3))
+                    LineView(maxValue: state == .play ? value.maxValue : minimalValue, style: style)
+                        .frame(width: ceil(reader.size.width / CGFloat(lineCount)))
+                        .animation(state == .play ? value.animation.repeatForever() : Animation.easeOut(duration: 0.3))
                 }
             }
-
-        }.opacity(self.opacity)
-            .drawingGroup()
-            .animation(Animation.linear)
+        }
+        .opacity(opacity)
+        .animation(.linear)
+        .frame(idealWidth: 18, idealHeight: 18)
     }
 }
 
 private extension SwimplyPlayIndicator {
     struct LineView: Shape {
         var maxValue: CGFloat
+        let style: Style
 
         var animatableData: CGFloat {
             get { maxValue }
@@ -76,10 +83,10 @@ private extension SwimplyPlayIndicator {
         }
 
         func path(in rect: CGRect) -> Path {
-            var path = Path()
-            path.move(to: .init(x: rect.midX, y: rect.maxY))
-            path.addLine(to: .init(x: rect.midX, y: rect.maxY - (maxValue * rect.height)))
-            return path
+            let cornerRadius = style == .legacy ? 0 : (rect.width / 2)
+            let height = max(rect.width, maxValue * rect.height)
+            let lineRect = CGRect(x: 0, y: rect.maxY - height, width: rect.width, height: height)
+            return Path(roundedRect: lineRect, cornerRadius: cornerRadius)
         }
     }
 }

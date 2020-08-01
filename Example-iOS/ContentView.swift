@@ -1,8 +1,8 @@
+import PlayIndicator
 import SwiftUI
-import SwimplyPlayIndicator
 
 struct ContentView: View {
-    @State var state: SwimplyPlayIndicator.AudioState = .stop
+    @State var state: PlayIndicator.AudioState = .stop
 
     var body: some View {
         VStack {
@@ -17,7 +17,8 @@ struct ContentView: View {
                 self.state = .stop
             }
 
-            SwimplyPlayIndicator(state: self.$state, lineColor: .white)
+            PlayIndicator(state: self.$state, lineColor: .black)
+                .frame(width: 18, height: 18)
         }.padding()
     }
 }
