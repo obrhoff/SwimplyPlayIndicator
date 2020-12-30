@@ -1,7 +1,8 @@
+import Combine
 import SwiftUI
 
 public struct SwimplyPlayIndicator: View {
-    struct AnimationValue: Identifiable {
+    fileprivate struct AnimationValue: Identifiable {
         let id: Int
         let maxValue: CGFloat
         let animation: Animation
@@ -19,74 +20,103 @@ public struct SwimplyPlayIndicator: View {
     }
 
     @Binding private var state: AudioState
-    @State private var animating: Bool = false
-    private let minimalValue: CGFloat = 0.1
-    public let lineColor: Color
-    public let lineCount: Int
-    public let style: Style
-
-    private var opacity: Double {
-        state == .stop ? 0.0 : 1.0
-    }
-
-    private var stopAnimation: Animation {
-        .easeOut(duration: 0.2)
-    }
-
-    private var opacityAnimation: Animation {
-        .linear
-    }
+    @State private var opacity: Double = 0.0
+    private let color: Color
+    private let count: Int
+    private let style: Style
 
     private var animationValues: [AnimationValue] {
-        let valueRange: ClosedRange<CGFloat> = (0.2 ... 1.0)
-        let speedRange: ClosedRange<Double> = (0.7 ... 1.2)
+        let valueRange: ClosedRange<CGFloat> = (0.7 ... 1.0)
+        let speedRange: ClosedRange<Double> = (0.6 ... 1.2)
         let animations: [Animation] = [.easeIn, .easeOut, .easeInOut, .linear]
-        let values = (0 ..< lineCount).compactMap { (id) -> AnimationValue? in
-            guard let animation = animations.randomElement() else { return nil }
-            return AnimationValue(id: id, maxValue: CGFloat.random(in: valueRange),
-                                  animation: animation.speed(Double.random(in: speedRange)))
-        }
+        let values = (0 ..< count)
+            .compactMap { (id) -> AnimationValue? in
+                animations
+                    .randomElement()
+                    .map { animation -> AnimationValue in
+                        AnimationValue(id: id, maxValue: CGFloat.random(in: valueRange),
+                                       animation: animation.speed(Double.random(in: speedRange)))
+                    }
+            }
         return values
     }
 
-    public init(state: Binding<AudioState>, lineCount: Int = 4, lineColor: Color = Color.black, style: Style = .modern) {
+    public init(state: Binding<AudioState>, count: Int = 4, color: Color = Color.black, style: Style = .modern) {
         _state = state
-        self.lineCount = lineCount
-        self.lineColor = lineColor
+        self.count = count
+        self.color = color
         self.style = style
     }
 
     public var body: some View {
-        GeometryReader { reader in
-            HStack(alignment: .center, spacing: 1) {
-                ForEach(self.animationValues) { value in
-                    LineView(maxValue: state == .play ? value.maxValue : minimalValue, style: style)
-                        .frame(width: ceil(reader.size.width / CGFloat(lineCount)))
-                        .animation(state == .play ? value.animation.repeatForever() : Animation.easeOut(duration: 0.3))
-                }
+        HStack(alignment: .center, spacing: 2) {
+            ForEach(self.animationValues) { animationValue in
+                BarView(state: $state, animationValue: animationValue, color: color, style: style)
             }
         }
         .opacity(opacity)
-        .animation(.linear)
+        .drawingGroup()
         .frame(idealWidth: 18, idealHeight: 18)
+        .onAppear {
+            self.opacity = 0.0
+        }
+        .onReceive(Just(state), perform: { _ in
+            withAnimation(.linear) {
+                self.opacity = state == .stop ? 0.0 : 1.0
+            }
+        })
     }
 }
 
-private extension SwimplyPlayIndicator {
-    struct LineView: Shape {
-        var maxValue: CGFloat
-        let style: Style
+private struct BarView: View {
+    @State private var heightValue: CGFloat = 0.0
+    @Binding private var state: SwimplyPlayIndicator.AudioState
+    private let color: Color
+    private let animationValue: SwimplyPlayIndicator.AnimationValue
+    private let style: SwimplyPlayIndicator.Style
 
-        var animatableData: CGFloat {
-            get { maxValue }
-            set { maxValue = newValue }
-        }
+    init(state: Binding<SwimplyPlayIndicator.AudioState>, animationValue: SwimplyPlayIndicator.AnimationValue, color: Color = Color.black, style: SwimplyPlayIndicator.Style) {
+        self.animationValue = animationValue
+        self.style = style
+        self.color = color
+        _state = state
+    }
 
-        func path(in rect: CGRect) -> Path {
-            let cornerRadius = style == .legacy ? 0 : (rect.width / 2)
-            let height = max(rect.width, maxValue * rect.height)
-            let lineRect = CGRect(x: 0, y: rect.maxY - height, width: rect.width, height: height)
-            return Path(roundedRect: lineRect, cornerRadius: cornerRadius)
+    var body: some View {
+        LineView(maxValue: heightValue, style: style)
+            .fill(color)
+            .onAppear {
+                heightValue = 0.0
+            }
+            .onReceive(Just(state).throttle(for: 0.5, scheduler: RunLoop.main, latest: true), perform: { _ in
+                let animation = state == .play
+                    ? animationValue.animation.repeatForever()
+                    : Animation.easeOut(duration: 0.3)
+
+                withAnimation(animation) {
+                    self.heightValue = state == .play ? animationValue.maxValue : 0.0
+                }
+            })
+    }
+}
+
+private struct LineView: Shape {
+    var maxValue: CGFloat = 0.0
+    let style: SwimplyPlayIndicator.Style
+
+    var animatableData: CGFloat {
+        get {
+            maxValue
         }
+        set {
+            maxValue = newValue
+        }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        let cornerRadius = style == .legacy ? 0 : (rect.width / 2)
+        let height = max(rect.width, maxValue * rect.height)
+        let lineRect = CGRect(x: 0, y: rect.maxY - height, width: rect.width, height: height)
+        return Path(roundedRect: lineRect, cornerRadius: cornerRadius)
     }
 }
