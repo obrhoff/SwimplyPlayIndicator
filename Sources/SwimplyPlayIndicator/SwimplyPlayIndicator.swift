@@ -1,11 +1,10 @@
-import Combine
 import SwiftUI
 
 public struct SwimplyPlayIndicator: View {
-    fileprivate struct AnimationValue: Identifiable {
+    fileprivate struct BarInfo: Identifiable {
         let id: Int
         let maxValue: CGFloat
-        let animation: Animation
+        let animationDuration: Double
     }
 
     public enum AudioState {
@@ -14,34 +13,23 @@ public struct SwimplyPlayIndicator: View {
         case pause
     }
 
-    public enum Style {
+    public enum Style: Sendable {
         case legacy
         case modern
     }
 
     @Binding private var state: AudioState
-    @State private var opacity: Double = 0.0
+    @State private var barInfos: [BarInfo] = []
     private let color: Color
     private let count: Int
     private let style: Style
 
-    private var animationValues: [AnimationValue] {
-        let valueRange: ClosedRange<CGFloat> = (0.7 ... 1.0)
-        let speedRange: ClosedRange<Double> = (0.6 ... 1.2)
-        let animations: [Animation] = [.easeIn, .easeOut, .easeInOut, .linear]
-        let values = (0 ..< count)
-            .compactMap { (id) -> AnimationValue? in
-                animations
-                    .randomElement()
-                    .map { animation -> AnimationValue in
-                        AnimationValue(id: id, maxValue: CGFloat.random(in: valueRange),
-                                       animation: animation.speed(Double.random(in: speedRange)))
-                    }
-            }
-        return values
-    }
-
-    public init(state: Binding<AudioState>, count: Int = 4, color: Color = Color.black, style: Style = .modern) {
+    public init(
+        state: Binding<AudioState>,
+        count: Int = 4,
+        color: Color = .black,
+        style: Style = .modern
+    ) {
         _state = state
         self.count = count
         self.color = color
@@ -50,67 +38,55 @@ public struct SwimplyPlayIndicator: View {
 
     public var body: some View {
         HStack(alignment: .center, spacing: 2) {
-            ForEach(self.animationValues) { animationValue in
-                BarView(state: $state, animationValue: animationValue, color: color, style: style)
+            ForEach(barInfos) { barInfo in
+                BarView(state: $state, barInfo: barInfo, color: color, style: style)
             }
         }
-        .opacity(opacity)
-        .drawingGroup()
         .frame(idealWidth: 18, idealHeight: 18)
+        .opacity(state == .stop ? 0 : 1)
+        .animation(.easeInOut(duration: 0.3), value: state)
         .onAppear {
-            self.opacity = 0.0
+            barInfos = generateBarInfos()
         }
-        .onReceive(Just(state), perform: { _ in
-            withAnimation(.linear) {
-                self.opacity = state == .stop ? 0.0 : 1.0
-            }
-        })
+    }
+
+    private func generateBarInfos() -> [BarInfo] {
+        (0 ..< count).map { id in
+            BarInfo(
+                id: id,
+                maxValue: CGFloat.random(in: 0.7 ... 1.0),
+                animationDuration: Double.random(in: 0.3 ... 0.8)
+            )
+        }
     }
 }
 
 private struct BarView: View {
-    @State private var heightValue: CGFloat = 0.0
-    @Binding private var state: SwimplyPlayIndicator.AudioState
-    private let color: Color
-    private let animationValue: SwimplyPlayIndicator.AnimationValue
-    private let style: SwimplyPlayIndicator.Style
-
-    init(state: Binding<SwimplyPlayIndicator.AudioState>, animationValue: SwimplyPlayIndicator.AnimationValue, color: Color = Color.black, style: SwimplyPlayIndicator.Style) {
-        self.animationValue = animationValue
-        self.style = style
-        self.color = color
-        _state = state
-    }
+    @Binding var state: SwimplyPlayIndicator.AudioState
+    let barInfo: SwimplyPlayIndicator.BarInfo
+    let color: Color
+    let style: SwimplyPlayIndicator.Style
 
     var body: some View {
-        LineView(maxValue: heightValue, style: style)
+        LineView(maxValue: state == .play ? barInfo.maxValue : 0, style: style)
             .fill(color)
-            .onAppear {
-                heightValue = 0.0
-            }
-            .onReceive(Just(state).throttle(for: 0.5, scheduler: RunLoop.main, latest: true), perform: { _ in
-                let animation = state == .play
-                    ? animationValue.animation.repeatForever()
-                    : Animation.easeOut(duration: 0.3)
-
-                withAnimation(animation) {
-                    self.heightValue = state == .play ? animationValue.maxValue : 0.0
-                }
-            })
+            .animation(
+                state == .play ?
+                    .easeInOut(duration: barInfo.animationDuration)
+                    .repeatForever(autoreverses: true) :
+                    .easeOut(duration: 0.3),
+                value: state
+            )
     }
 }
 
 private struct LineView: Shape {
-    var maxValue: CGFloat = 0.0
+    var maxValue: CGFloat
     let style: SwimplyPlayIndicator.Style
 
     var animatableData: CGFloat {
-        get {
-            maxValue
-        }
-        set {
-            maxValue = newValue
-        }
+        get { maxValue }
+        set { maxValue = newValue }
     }
 
     func path(in rect: CGRect) -> Path {
